@@ -2,6 +2,9 @@
 
 namespace Btinet\MiniCore\Product;
 
+use Btinet\MiniCore\Type\MoneyType;
+use JetBrains\PhpStorm\Pure;
+
 abstract class ShopProduct
 {
 
@@ -9,8 +12,9 @@ abstract class ShopProduct
     public string $producerFirstName;
     public string $producerLastName;
     public int $discount = 0;
-    protected int $price;
+    protected MoneyType $price;
 
+    #[Pure]
     public function __construct(
         $title,
         $producerFirstName,
@@ -20,7 +24,7 @@ abstract class ShopProduct
         $this->title = $title;
         $this->producerFirstName = $producerFirstName;
         $this->producerLastName = $producerLastName;
-        $this->price = $price;
+        $this->price = new MoneyType($price);
     }
 
     /**
@@ -41,12 +45,13 @@ abstract class ShopProduct
 
     public function setPrice(int $price): void
     {
-        $this->price = $price;
+        $this->price->setAmount($price);
     }
 
-    public function getPrice(): int
+    #[Pure]
+    public function getPrice(): string
     {
-        return ($this->price - $this->discount);
+        return $this->price;
     }
 
     public function setDiscount(int $discount): void

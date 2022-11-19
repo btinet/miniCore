@@ -37,9 +37,4 @@ class BookProduct extends ShopProduct
         return $base;
     }
 
-    public function getPrice(): int
-    {
-        return $this->price;
-    }
-
 }
