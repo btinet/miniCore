@@ -15,8 +15,7 @@ class CdProduct extends ShopProduct
         string $producerLastName,
         int $price,
         int $playLength
-    )
-    {
+    ){
         parent::__construct(
             $title,
             $producerFirstName,
