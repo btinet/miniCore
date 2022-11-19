@@ -1,0 +1,19 @@
+{
+    "name": "btinet/mini-core",
+    "description": "A basic php mini framework for building fast projects.",
+    "type": "framework",
+    "license": "mit",
+    "autoload": {
+        "psr-4": {
+            "Btinet\\MiniCore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Benjamin Wagner",
+            "email": "bwagner@vapita.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
