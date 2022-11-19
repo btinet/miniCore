@@ -32,10 +32,14 @@ class BookProduct extends ShopProduct
 
     public function getSummaryLine(): string
     {
-        $base  = "{$this->title} ( {$this->producerLastName}, ";
-        $base .= "{$this->producerFirstName} )";
+        $base  = parent::getSummaryLine();
         $base .= ": page count - {$this->numPages}";
         return $base;
+    }
+
+    public function getPrice(): int
+    {
+        return $this->price;
     }
 
 }

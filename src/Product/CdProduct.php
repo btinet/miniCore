@@ -33,8 +33,7 @@ class CdProduct extends ShopProduct
 
     public function getSummaryLine(): string
     {
-        $base  = "{$this->title} ( {$this->producerLastName}, ";
-        $base .= "{$this->producerFirstName} )";
+        $base  = parent::getSummaryLine();
         $base .= ": playing time - {$this->playLength}";
         return $base;
     }

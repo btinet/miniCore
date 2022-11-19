@@ -8,7 +8,8 @@ abstract class ShopProduct
     public string $title;
     public string $producerFirstName;
     public string $producerLastName;
-    public int $price;
+    public int $discount = 0;
+    protected int $price;
 
     public function __construct(
         $title,
@@ -36,6 +37,21 @@ abstract class ShopProduct
         $base  = "{$this->title} ( {$this->producerLastName}, ";
         $base .= "{$this->producerFirstName} )";
         return $base;
+    }
+
+    public function setPrice(int $price): void
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice(): int
+    {
+        return ($this->price - $this->discount);
+    }
+
+    public function setDiscount(int $discount): void
+    {
+        $this->discount = $discount;
     }
 
 }
